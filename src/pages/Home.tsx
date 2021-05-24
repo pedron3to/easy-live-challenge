@@ -1,11 +1,10 @@
 import { useHistory } from 'react-router-dom'
 
-
-export default function Home() {
+function Home() {
   let history = useHistory()
 
   function handleSignIn() {
-    history.push("/login")
+    history.push('/login')
   }
   return(
     <div>
@@ -15,3 +14,5 @@ export default function Home() {
     </div>
   )
 }
+
+export default Home
