@@ -1,5 +1,5 @@
 
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import {
   ConsultationDataWrap,
   ConsultationWrapper,
@@ -14,10 +14,12 @@ import { Button } from '../components/Button/styles';
 import { OutlinedButton } from '../components/ButtonLogOut/styles'
 import { Modal } from '../components/Modal';
 import { api } from '../services/api';
+import { Context } from '../Context/AuthContext';
 
 export default function Consultation() {
   const [showModal, setShowModal] = useState(false)
   const [patients, setPatients] = useState([])
+  const { setAuthenticated } = useContext(Context)
 
   async function getConsultations() {
     api.defaults.headers.Authorization = `Bearer ${localStorage.getItem('token')}`
@@ -27,6 +29,8 @@ export default function Consultation() {
     console.log(data)
 
     setPatients(data)
+
+    setAuthenticated(true);
   }
 
   useEffect(() => {
