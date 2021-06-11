@@ -1,30 +1,48 @@
-import { createContext, Dispatch, FormEvent, ReactNode, SetStateAction }from 'react'
+import { createContext, ReactNode, SetStateAction, Dispatch } from 'react'
 
-import useAuth from './hooks/useAuth'
+import useAuth from './hooks/useAuth';
 
 interface AppContextInterface {
-   password: string;
-   setPassword: Dispatch<SetStateAction<string>>;
-   email: string;
-   setEmail: Dispatch<SetStateAction<string>>;
-   handleSubmit: (event: FormEvent) => Promise<void>;
-
+  onSubmit: any;
+  //handleSubmit: UseFormHandleSubmit<IFormInputs>;
+  //register: UseFormRegister<IFormInputs>;
+  handleLogOut: (event: any) => void;
+  authenticated: boolean;
+  doctorName: string;
+  setAuthenticated: Dispatch<SetStateAction<boolean>>;
 }
 
-const Context = createContext<AppContextInterface | null>(null)
+const Context = createContext<Partial<AppContextInterface>>({});
+
 
 interface AuthProviderProps {
   children: ReactNode;
 }
 
 
-function AuthProvider({children}:AuthProviderProps) {
-  const { password, setPassword, email, setEmail, handleSubmit } = useAuth()
-  
-  return(
-    <Context.Provider value={{password, setPassword, email, setEmail, handleSubmit}}>
-      {children}
-    </Context.Provider>
+function AuthProvider({ children }: AuthProviderProps) {
+  const {
+    onSubmit,
+    // handleSubmit,
+    // register,
+    handleLogOut,
+    authenticated,
+    doctorName,
+    setAuthenticated
+  } = useAuth();
+
+  return (<Context.Provider value={{
+    onSubmit,
+    //handleSubmit, 
+    //register,
+    handleLogOut,
+    authenticated,
+    doctorName,
+    setAuthenticated
+  }}
+  >
+    {children}
+  </Context.Provider>
   )
 }
 

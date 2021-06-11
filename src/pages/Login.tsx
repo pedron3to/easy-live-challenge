@@ -1,49 +1,68 @@
-import { api }  from '../services/api';
-import { useHistory } from "react-router-dom";
+import { forwardRef, useContext, useState } from 'react';
+import { Form, Label, Input, PasswordWrap } from '../components/Form';
+import { LoginWrap } from '../components/Login/styles';
+import { LoginIlustration } from '../components/LoginIlustration';
+import { Context } from '../Context/AuthContext'
+import { BsEye, BsEyeSlash } from "react-icons/bs";
+import { Button } from '../components/Button/styles';
 import { useForm } from 'react-hook-form';
-import { forwardRef } from 'react';
 
 
- const Login = forwardRef(() => {
-  const {register, handleSubmit }= useForm();
-  let history = useHistory()
-
- 
 
 
-    function HandleSignIn() {
-     api.post('/login', {
-      })
-      .then(function (response) {
-        console.log(response);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-    }
 
-   
-    /* history.push("/consultation") */
 
-    return (
-        <form onSubmit={handleSubmit(HandleSignIn)}>
-          <input 
-            type='email' 
-            name='email' 
+
+const Login = forwardRef(() => {
+  const { onSubmit } = useContext(Context)
+  const [passwordShown, setPasswordShown] = useState(false)
+  const { register, handleSubmit } = useForm();
+
+  function togglePasswordVisibility() {
+    setPasswordShown(passwordShown ? false : true)
+  }
+
+  return (
+    <LoginWrap>
+      <LoginIlustration />
+
+      <Form onSubmit={handleSubmit(onSubmit)}>
+        <Label>
+          E-mail
+          <Input
+            type='email'
             placeholder='Digite seu email'
-            ref={register}
+            {...register('email')}
           />
-          <input 
-            type='password' 
-            placeholder='digite sua senha'
-            ref={register}
+        </Label>
+        <Label>
 
-          />
-            <button type='submit'>entrar</button>
-        </form>
-    ); 
- }) 
+          Senha
+          <PasswordWrap>
+            <Input
+              type={passwordShown ? "text" : "password"}
+              placeholder='digite sua senha'
+              {...register("password")}
+            />
+            <i onClick={togglePasswordVisibility}>
+              {passwordShown
+                ? <BsEye color="#999392" size={17} />
+                : <BsEyeSlash color="#999392" size={17} />
+              }
+            </i>
+
+          </PasswordWrap>
+        </Label>
+        <Button
+          type='submit'
+          marginTop={68}
+        >
+          Entrar</Button>
+      </Form>
+    </LoginWrap>
+  );
+})
 
 
- export default Login
+export default Login
 
