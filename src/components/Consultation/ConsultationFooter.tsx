@@ -1,28 +1,23 @@
-import { ConsultationFooterWrapper } from './styles'
-import { OutlinedButton } from '../ButtonLogOut/styles'
-import { Button } from '../Button/styles'
-import { Modal } from '../Modal'
+import { useState } from 'react';
 
-// interface ConsultationFooterProps {
-//   openModal: () => void;
-//   showModal: boolean;
-//   handleCloseModal: boolean;
-//   onClick: () => void;
+// import { Button } from '../Button/styles';
+// import { OutlinedButton } from '../ButtonLogOut/styles';
+// import { Modal } from '../Modal';
+// import { ConsultationFooterWrapper } from './styles';
 
+export function ConsultationFooter() {
+  const [showModal, setShowModal] = useState(false);
 
-// }
+  function openModal() {
+    setShowModal(prev => !prev);
+  }
 
-export function ConsultationFooter({
-  openModal,
-  showModal,
-  handleCloseModal,
-
-}: any) {
   return (
-    <ConsultationFooterWrapper>
-      <OutlinedButton>Ajuda</OutlinedButton>
-      <Button onClick={openModal}>Agendar Consulta</Button>
-      <Modal showModal={showModal} setShowModal={handleCloseModal} />
-    </ConsultationFooterWrapper>
-  )
+    // <ConsultationFooterWrapper>
+    //   <OutlinedButton>Ajuda</OutlinedButton>
+    //   <Button onClick={openModal}>Agendar Consulta</Button>
+    //   <Modal showModal={showModal} setShowModal={handleCloseModal} />
+    // </ConsultationFooterWrapper>
+    <div>te4ste</div>
+  );
 }

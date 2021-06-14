@@ -1,11 +1,11 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const OutlinedButton = styled.button`
-  padding:7px 16px 7px 16px;
+  padding: 7px 16px 7px 16px;
   border-radius: 6px;
-  color: #2E50D4;
-  border: 2px solid #2E50D4;
-  
+  color: #2e50d4;
+  border: 2px solid #2e50d4;
+
   font-weight: Bold;
   font-size: 12px;
   line-height: 1.5;
@@ -14,6 +14,6 @@ export const OutlinedButton = styled.button`
   background: transparent;
 
   &:hover {
-   filter: brightness(.7);
- }
+    filter: brightness(0.7);
+  }
 `;

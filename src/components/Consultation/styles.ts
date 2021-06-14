@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const ConsultationWrapper = styled.div`
   width: 100vw;
@@ -8,7 +8,6 @@ export const ConsultationWrapper = styled.div`
   justify-content: space-between;
   margin-top: 57px;
   margin-bottom: 69px;
-
 `;
 
 export const ConsultationDataWrap = styled.div`
@@ -16,7 +15,6 @@ export const ConsultationDataWrap = styled.div`
   max-width: 520px;
   margin: 76px auto 0 auto;
   padding: 0 1rem;
-
 `;
 
 export const ConsultationTextWrapper = styled.div`
@@ -26,24 +24,21 @@ export const ConsultationTextWrapper = styled.div`
 
   @media screen and (max-width: 320px) {
     margin-left: 1rem;
-  >h2{
-    font-size: 28px;
+    > h2 {
+      font-size: 28px;
+    }
   }
-}
-
-
 `;
 
 export const ConsultationDataTitleWrap = styled.div`
- margin-bottom: 24px;
-
+  margin-bottom: 24px;
 `;
 
 export const ConsultationPatientInfo = styled.div`
- display : flex;
- flex-direction: row;
- justify-content: space-between;
- margin-bottom: 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 2rem;
 `;
 
 export const ConsultationFooterWrapper = styled.div`
@@ -52,11 +47,10 @@ export const ConsultationFooterWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 1rem;
-  bottom:0;
+  bottom: 0;
   right: 0;
   left: 0;
-  border-top: 1px solid #DAD2D0;
-
+  border-top: 1px solid #dad2d0;
 `;
 
 export const DateWrap = styled.div`

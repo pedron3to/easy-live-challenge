@@ -1,33 +1,42 @@
-import { useCallback, useContext, useEffect, useRef } from "react"
-import DatePicker, { } from "react-datepicker";
+import { useCallback, useEffect, useRef } from 'react';
+// eslint-disable-next-line import-helpers/order-imports
+import DatePicker from 'react-datepicker';
 
-import "react-datepicker/dist/react-datepicker.css";
-import { AppointmentWrapper, BackgroundModal, CloseModalButton } from "./styles"
-import { Controller, useForm } from 'react-hook-form'
-import { Form, Input, Label, } from '../Form';
+import 'react-datepicker/dist/react-datepicker.css';
+import { Controller, useForm } from 'react-hook-form';
+
+import { api } from '../../services/api';
 import { Button } from '../Button/styles';
-import { api } from "../../services/api";
+import { FormContainer, Input, Label } from '../Form/styles';
+import {
+  AppointmentWrapper,
+  BackgroundModal,
+  CloseModalButton,
+} from './styles';
 
 interface ModalProps {
-  showModal: any,
-  setShowModal: any
+  showModal: any;
+  setShowModal: any;
 }
 
 export function Modal({ showModal, setShowModal }: ModalProps) {
-  const { handleSubmit, control, register } = useForm()
+  const { handleSubmit, control, register } = useForm();
 
   const ModalRef = useRef<HTMLInputElement | null>(null);
 
   function onSubmit(data: any) {
-    console.log(data)
+    console.log(data);
 
-    api.defaults.headers.Authorization = `Bearer ${localStorage.getItem('token')}`;
+    api.defaults.headers.Authorization = `Bearer ${localStorage.getItem(
+      'token',
+    )}`;
 
-    api.post('/consultations', data)
-      .then(function (response) {
-        setShowModal()
+    api
+      .post('/consultations', data)
+      .then(function response() {
+        setShowModal();
       })
-      .catch(function (error) {
+      .catch(function error(error) {
         console.log(error);
       });
   }
@@ -39,60 +48,57 @@ export function Modal({ showModal, setShowModal }: ModalProps) {
   }
 
   const keyPress = useCallback(
-    (e) => {
+    e => {
       if (e.key === 'Escape' && showModal) {
-        setShowModal(false)
+        setShowModal(false);
       }
     },
     [setShowModal, showModal],
-  )
+  );
 
   useEffect(() => {
-    document.addEventListener('keydown', keyPress)
-    return () => document.removeEventListener('keydown', keyPress)
-  }, [keyPress])
+    document.addEventListener('keydown', keyPress);
+    return () => document.removeEventListener('keydown', keyPress);
+  }, [keyPress]);
 
-  interface RenderProps {
-    onChange: (value: any) => void;
-    value: unknown;
-  }
+  // interface RenderProps {
+  //   onChange: (value: any) => void;
+  //   value: unknown;
+  // }
 
   return (
     <>
-      {showModal ?
+      {showModal ? (
         <BackgroundModal ref={ModalRef} onClick={CloseModal}>
           <AppointmentWrapper>
-            <Form onSubmit={handleSubmit(onSubmit)}>
-              <Label>
-                Nome do Paciente
-              </Label>
-              <Input  {...register("patientId")} type='number' />
-              <Label>
-                Escolha o dia e o Horário:
-              </Label>
+            <FormContainer onSubmit={handleSubmit(onSubmit)}>
+              <Label>Nome do Paciente</Label>
+              <Input {...register('patientId')} type="number" />
+              <Label>Escolha o dia e o Horário:</Label>
               <Controller
-                name='date'
+                name="date"
                 control={control}
-                render={
-                  ({
-                    field: { onChange, value },
-                  }) =>
-                    <DatePicker
-                      showTimeSelect
-                      onChange={onChange}
-                      selected={value}
-                      dateFormat="d MMMM, yyyy h:mm aa"
-                      timeFormat="p"
-                    />
-                }
+                render={({ field: { onChange, value } }) => (
+                  <DatePicker
+                    showTimeSelect
+                    onChange={onChange}
+                    selected={value}
+                    dateFormat="d MMMM, yyyy h:mm aa"
+                    timeFormat="p"
+                  />
+                )}
               />
-              <Button type='submit' marginTop={68}>Agendar</Button>
-            </Form>
+              <Button type="submit" marginTop={68}>
+                Agendar
+              </Button>
+            </FormContainer>
             <CloseModalButton
-              aria-label='Close modal'
-              onClick={() => setShowModal((prev: any) => !prev)} />
+              aria-label="Close modal"
+              onClick={() => setShowModal((prev: any) => !prev)}
+            />
           </AppointmentWrapper>
-        </BackgroundModal> : null}
+        </BackgroundModal>
+      ) : null}
     </>
-  )
+  );
 }

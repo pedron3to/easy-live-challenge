@@ -4,7 +4,6 @@
     "es2021": true,
     "jest": true
   },
-
   "extends": [
     "plugin:react/recommended",
     "airbnb",
@@ -13,7 +12,6 @@
     "plugin:prettier/recommended"
   ],
   "parser": "@typescript-eslint/parser",
-
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
@@ -28,53 +26,89 @@
     "prettier"
   ],
   "rules": {
-    "react/jsx-filename-extension": [
-      2,
-      { "extensions": [".js", ".jsx", ".ts", ".tsx"] }
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      }
     ],
-
+    "class-methods-use-this": "off",
+    "react/jsx-one-expression-per-line": "off",
+    "react/jsx-props-no-spreading": "off",
+    "react/prop-types": "off",
+    "react/func-name":"off",
+    "react/react-in-jsx-scope": "off",
+    "import/prefer-default-export": "off",
+    "no-shadow": "off",
+    "no-unused-expressions": "off",
+    "no-console": "off",
+    "no-useless-constructor": "off",
+    "react/no-empty-function": "off",
+    "lines-between-class-members": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/": "off",
+    "camelcase": "off",
+    "func-name-matching": [
+      "error",
+      "always"
+    ],
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [
+          ".tsx",
+          ".js"
+        ]
+      }
+    ],
     "import-helpers/order-imports": [
       "warn",
       {
         "newlinesBetween": "always",
-        "groups": ["module", "/^@shared/", ["parent", "sibling", "index"]],
+        "groups": [
+          "module",
+          "/^@shared/",
+          [
+            "parent",
+            "sibling",
+            "index"
+          ]
+        ],
         "alphabetize": {
           "order": "asc",
           "ignoreCase": true
         }
       }
     ],
-    "@typescript-eslint/naming-convention": [
+    "no-use-before-define": [
       "error",
       {
-        "selector": "interface",
-        "format": ["PascalCase"],
-        "custom": {
-          "regex": "^I[A-Z]",
-          "match": true
-        }
+        "functions": true,
+        "classes": true
       }
     ],
-    "class-methods-use-this": "off",
-    "import/prefer-default-export": "off",
-    "no-shadow": "off",
-    "no-console": "off",
-
-    "no-useless-constructor": "off",
-    "no-empty-function": "off",
-    "lines-between-class-members": "off",
-    "prettier/prettier": "error",
-
     "import/extensions": [
       "error",
       "ignorePackages",
       {
-        "ts": "never"
+        "ts": "never",
+        "tsx": "never"
       }
     ],
     "import/no-extraneous-dependencies": [
       "error",
-      { "devDependencies": ["**/*.spec.js"] }
+      {
+        "devDependencies": [
+          "**/*.spec.js"
+        ]
+      }
     ]
+  },
+  "settings": {
+    "import/resolver": {
+      "typescript": {}
+    }
   }
 }
