@@ -1,18 +1,18 @@
-import { useHistory } from 'react-router-dom'
+import { useHistory } from "react-router-dom";
 
 function Home() {
-  let history = useHistory()
+  const history = useHistory();
 
   function handleSignIn() {
-    history.push('/login')
+    history.push("/login");
   }
-  return(
+  return (
     <div>
-      <button type='button' onClick={handleSignIn} >
+      <button type="button" onClick={handleSignIn}>
         fazer login
       </button>
     </div>
-  )
+  );
 }
 
-export default Home
+export default Home;

@@ -1,5 +1,7 @@
+import { useContext, useEffect, useState } from "react";
 
-import { useContext, useEffect, useState } from 'react'
+import { Button } from "../components/Button/styles";
+import { OutlinedButton } from "../components/ButtonLogOut/styles";
 import {
   ConsultationDataWrap,
   ConsultationWrapper,
@@ -7,55 +9,52 @@ import {
   ConsultationDataTitleWrap,
   ConsultationPatientInfo,
   ConsultationFooterWrapper,
-  DateWrap
-} from '../components/Consultation/styles';
-import { Button } from '../components/Button/styles';
-
-import { OutlinedButton } from '../components/ButtonLogOut/styles'
-import { Modal } from '../components/Modal';
-import { api } from '../services/api';
-import { Context } from '../Context/AuthContext';
+  DateWrap,
+} from "../components/Consultation/styles";
+import { Modal } from "../components/Modal";
+import { Context } from "../Context/AuthContext";
+import { api } from "../services/api";
 
 export default function Consultation() {
-  const [showModal, setShowModal] = useState(false)
-  const [patients, setPatients] = useState([])
-  const { setAuthenticated } = useContext(Context)
+  const [showModal, setShowModal] = useState(false);
+  const [patients, setPatients] = useState([]);
+  const { setAuthenticated } = useContext(Context);
 
   async function getConsultations() {
-    api.defaults.headers.Authorization = `Bearer ${localStorage.getItem('token')}`
+    api.defaults.headers.Authorization = `Bearer ${localStorage.getItem(
+      "token"
+    )}`;
 
-    const { data } = await api.get('/consultations?_expand=patient')
+    const { data } = await api.get("/consultations?_expand=patient");
 
-    console.log(data)
+    console.log(data);
 
-    setPatients(data)
+    setPatients(data);
 
     setAuthenticated(true);
   }
 
   useEffect(() => {
-    getConsultations()
-  }, [])
+    getConsultations();
+  }, []);
 
-  const handleCloseModal =
-    async () => {
-      await getConsultations()
-      setShowModal(false);
-    }
-
+  const handleCloseModal = async () => {
+    await getConsultations();
+    setShowModal(false);
+  };
 
   function openModal() {
-    setShowModal(prev => !prev)
+    setShowModal((prev) => !prev);
   }
 
-  const Dateformatter = Intl.DateTimeFormat('pt-br', {
-    dateStyle: 'short',
-  })
+  const Dateformatter = Intl.DateTimeFormat("pt-br", {
+    dateStyle: "short",
+  });
 
-  const Hourformatter = Intl.DateTimeFormat('pt-br', {
-    hour: 'numeric',
-    minute: 'numeric'
-  })
+  const Hourformatter = Intl.DateTimeFormat("pt-br", {
+    hour: "numeric",
+    minute: "numeric",
+  });
 
   return (
     <ConsultationWrapper>
@@ -66,21 +65,26 @@ export default function Consultation() {
       <ConsultationDataWrap>
         <ConsultationDataTitleWrap>
           <h6>{patients.length} consultas agendadas</h6>
-
         </ConsultationDataTitleWrap>
 
-        {patients.map(({ id, date, patient: { patiendId, first_name, last_name } }) =>
-        (<ConsultationPatientInfo key={id}>
-          <div >
-            <div >{first_name} {last_name}</div>
-            <DateWrap >
-              <p key={patiendId}>{Dateformatter.format(Date.parse(date))}</p>
-              <p>às</p>
-              <p >{Hourformatter.format(Date.parse(date))}</p>
-            </DateWrap>
-          </div>
-          <Button>Atender</Button>
-        </ConsultationPatientInfo>)
+        {patients.map(
+          ({ id, date, patient: { patiendId, first_name, last_name } }) => (
+            <ConsultationPatientInfo key={id}>
+              <div>
+                <div>
+                  {first_name} {last_name}
+                </div>
+                <DateWrap>
+                  <p key={patiendId}>
+                    {Dateformatter.format(Date.parse(date))}
+                  </p>
+                  <p>às</p>
+                  <p>{Hourformatter.format(Date.parse(date))}</p>
+                </DateWrap>
+              </div>
+              <Button>Atender</Button>
+            </ConsultationPatientInfo>
+          )
         )}
       </ConsultationDataWrap>
       <ConsultationFooterWrapper>
@@ -89,7 +93,5 @@ export default function Consultation() {
         <Modal showModal={showModal} setShowModal={handleCloseModal} />
       </ConsultationFooterWrapper>
     </ConsultationWrapper>
-  )
-
+  );
 }
-
