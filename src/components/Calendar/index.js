@@ -16,7 +16,6 @@ export function Calendar() {
       selected={startDate}
       onChange={date => {
         setStartDate(date);
-        console.log(date);
       }}
       dateFormat="d MMMM, yyyy h:mm aa"
       timeFormat="p"

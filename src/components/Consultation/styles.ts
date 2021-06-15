@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const ConsultationWrapper = styled.div`
+export const ConsultationContainer = styled.div`
   width: 100vw;
   height: calc(100vh - 57px -69px);
   display: flex;
@@ -10,7 +10,7 @@ export const ConsultationWrapper = styled.div`
   margin-bottom: 69px;
 `;
 
-export const ConsultationDataWrap = styled.div`
+export const ConsultationDataContainer = styled.div`
   width: 100vw;
   max-width: 520px;
   margin: 76px auto 0 auto;
@@ -30,7 +30,7 @@ export const ConsultationTextWrapper = styled.div`
   }
 `;
 
-export const ConsultationDataTitleWrap = styled.div`
+export const ConsultationDataTitleContainer = styled.div`
   margin-bottom: 24px;
 `;
 

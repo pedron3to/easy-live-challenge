@@ -9,12 +9,12 @@ import { HeaderWrap } from './styles';
 const DoctorWrap = styled.div`
   display: flex;
   align-items: center;
-  > p {
+  > h5 {
     margin-right: 16px;
   }
 
-  @media screen and (max-width: 420px) {
-    > h5 {
+  @media screen and (max-width: 480px) {
+    h5 {
       display: none;
     }
   }
@@ -25,7 +25,6 @@ export function Header() {
   return (
     <HeaderWrap>
       <Logo />
-
       {authenticated ? (
         <DoctorWrap>
           <h5>Olá, Dr. {doctorName}</h5>

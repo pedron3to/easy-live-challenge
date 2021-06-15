@@ -17,3 +17,17 @@ export const HeaderWrap = styled.nav`
   background: #fffffb;
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05);
 `;
+
+export const DoctorContainer = styled.div`
+  display: flex;
+  align-items: center;
+  > h5 {
+    margin-right: 16px;
+  }
+
+  @media screen and (max-width: 480px) {
+    h5 {
+      display: none;
+    }
+  }
+`;

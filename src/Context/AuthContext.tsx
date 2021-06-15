@@ -4,14 +4,10 @@ import useAuth from './hooks/useAuth';
 
 interface AppContextInterface {
   onSubmit: any;
-
   handleLogOut: (event: any) => void;
-
   authenticated: boolean;
-
-  doctorName: string;
-
   setAuthenticated: React.Dispatch<React.SetStateAction<boolean>>;
+  doctorName: string | null;
 }
 
 const Context = createContext<Partial<AppContextInterface>>({});
@@ -23,13 +19,9 @@ interface AuthProviderProps {
 function AuthProvider({ children }: AuthProviderProps) {
   const {
     onSubmit,
-
     handleLogOut,
-
     authenticated,
-
     doctorName,
-
     setAuthenticated,
   } = useAuth();
 
@@ -37,13 +29,9 @@ function AuthProvider({ children }: AuthProviderProps) {
     <Context.Provider
       value={{
         onSubmit,
-
         handleLogOut,
-
         authenticated,
-
         doctorName,
-
         setAuthenticated,
       }}
     >

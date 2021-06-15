@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 
 import { Context } from './Context/AuthContext';
-import Consultation from './pages/Consultation';
+import Consultation from './pages/Consultation.js';
 import Home from './pages/Home';
 import Login from './pages/Login';
 
@@ -24,8 +24,8 @@ export default function Routes() {
         <Route path="/login" component={Login} />
         <CustomRoute
           isPrivate
-          path="/consultation"
           exact
+          path="/consultation"
           component={Consultation}
         />
       </Switch>

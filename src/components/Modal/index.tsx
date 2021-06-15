@@ -25,8 +25,6 @@ export function Modal({ showModal, setShowModal }: ModalProps) {
   const ModalRef = useRef<HTMLInputElement | null>(null);
 
   function onSubmit(data: any) {
-    console.log(data);
-
     api.defaults.headers.Authorization = `Bearer ${localStorage.getItem(
       'token',
     )}`;
