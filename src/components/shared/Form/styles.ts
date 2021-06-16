@@ -3,21 +3,28 @@ import styled from 'styled-components';
 export const FormContainer = styled.form`
   display: flex;
   flex-direction: column;
-
   width: 235px;
 
-  label:nth-child(2) {
-    margin-top: 32px;
+  @media screen and (max-width: 500px) {
+    width: 272px;
   }
 `;
 
 export const Label = styled.label`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   font-size: 14px;
   font-weight: 400;
   line-height: 1.42;
   color: #575453;
+
+  &:nth-child(3) {
+    margin-top: 32px;
+  }
+
+  > i {
+    padding-left: 8px;
+  }
 `;
 
 export const Input = styled.input`
@@ -35,6 +42,11 @@ export const Input = styled.input`
 export const PasswordWrap = styled.div`
   position: relative;
   display: flex;
+  margin-bottom: 68px;
+
+  @media screen and (max-width: 500px) {
+    margin-bottom: 40px;
+  }
 
   > i {
     position: absolute;

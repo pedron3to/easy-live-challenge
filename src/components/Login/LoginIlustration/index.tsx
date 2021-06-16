@@ -1,5 +1,5 @@
-import Decoration from '../../assets/decoration.svg';
-import LoginImage from '../../assets/login2.svg';
+import Decoration from '../../../assets/decoration.svg';
+import LoginImage from '../../../assets/login2.svg';
 import { ImageWrap, LoginIlustrationWrap, TextWrap } from './styles';
 
 export function LoginIlustration() {

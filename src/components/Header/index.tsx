@@ -2,9 +2,9 @@ import { useContext } from 'react';
 import styled from 'styled-components';
 
 import { Context } from '../../Context/AuthContext';
-import { ButtonLogOut } from '../ButtonLogOut';
-import { Logo } from '../Logo';
-import { HeaderWrap } from './styles';
+import { ButtonLogOut } from './ButtonLogOut';
+import { Logo } from './Logo';
+import { AuthenticatedHeadContainer, HeaderWrap } from './styles';
 
 const DoctorWrap = styled.div`
   display: flex;
@@ -23,16 +23,32 @@ const DoctorWrap = styled.div`
 export function Header() {
   const { authenticated, doctorName } = useContext(Context);
   return (
-    <HeaderWrap>
-      <Logo />
+    <div>
       {authenticated ? (
-        <DoctorWrap>
-          <h5>Olá, Dr. {doctorName}</h5>
-          <ButtonLogOut />
-        </DoctorWrap>
+        <AuthenticatedHeadContainer>
+          <Logo />
+          <DoctorWrap>
+            <h5>Olá, Dr. {doctorName}</h5>
+            <ButtonLogOut />
+          </DoctorWrap>
+        </AuthenticatedHeadContainer>
       ) : (
-        ''
+        <HeaderWrap>
+          <Logo />
+        </HeaderWrap>
       )}
-    </HeaderWrap>
+    </div>
+
+    // <HeaderWrap style={{ color: 'red' }}>
+    //   <Logo />
+    //   {authenticated ? (
+    //     <DoctorWrap>
+    //       <h5>Olá, Dr. {doctorName}</h5>
+    //       <ButtonLogOut />
+    //     </DoctorWrap>
+    //   ) : (
+    //     ''
+    //   )}
+    // </HeaderWrap>
   );
 }

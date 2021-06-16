@@ -1,14 +1,13 @@
-import { Button } from '../Button/styles';
-import { OutlinedButton } from '../ButtonLogOut/styles';
-import { Modal } from '../Modal';
-import { ConsultationFooterWrapper } from './styles';
+import { Button } from '../shared/Button';
+import { Modal } from './Modal';
+import { ConsultationFooterContainer } from './styles';
 
 export function ConsultationFooter({ showModal, handleCloseModal, openModal }) {
   return (
-    <ConsultationFooterWrapper>
-      <OutlinedButton>Ajuda</OutlinedButton>
+    <ConsultationFooterContainer>
+      <Button variant="outlined">Ajuda</Button>
       <Button onClick={openModal}>Agendar Consulta</Button>
       <Modal showModal={showModal} setShowModal={handleCloseModal} />
-    </ConsultationFooterWrapper>
+    </ConsultationFooterContainer>
   );
 }

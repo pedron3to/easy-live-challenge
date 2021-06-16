@@ -1,10 +1,11 @@
-import { Button } from '../Button/styles';
+import { Button } from '../shared/Button';
+import { ConsultationDataTitle } from './ConsultationDataTitle';
 import {
-  ConsultationDataTitleContainer,
   ConsultationDataContainer,
   ConsultationPatientInfo,
   DateWrap,
 } from './styles';
+import { ZeroConsultation } from './ZeroConsultation';
 
 export default function ConsultationData({ patients }) {
   const Dateformatter = Intl.DateTimeFormat('pt-br', {
@@ -18,9 +19,9 @@ export default function ConsultationData({ patients }) {
 
   return (
     <ConsultationDataContainer>
-      <ConsultationDataTitleContainer>
-        <h6>{patients.length} consultas agendadas</h6>
-      </ConsultationDataTitleContainer>
+      <ConsultationDataTitle>
+        {patients.length} consultas agendadas
+      </ConsultationDataTitle>
 
       {patients.map(
         ({ id, date, patient: { patiendId, first_name, last_name } }) => (

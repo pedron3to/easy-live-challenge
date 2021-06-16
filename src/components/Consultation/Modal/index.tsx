@@ -5,9 +5,10 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { Controller, useForm } from 'react-hook-form';
 
-import { api } from '../../services/api';
-import { Button } from '../Button/styles';
-import { FormContainer, Input, Label } from '../Form/styles';
+import { api } from '../../../services/api';
+import { Button } from '../../shared/Button';
+import { Input, Label } from '../../shared/Form/styles';
+import { FormModalContainer } from './formStyles';
 import {
   AppointmentWrapper,
   BackgroundModal,
@@ -59,17 +60,12 @@ export function Modal({ showModal, setShowModal }: ModalProps) {
     return () => document.removeEventListener('keydown', keyPress);
   }, [keyPress]);
 
-  // interface RenderProps {
-  //   onChange: (value: any) => void;
-  //   value: unknown;
-  // }
-
   return (
     <>
       {showModal ? (
         <BackgroundModal ref={ModalRef} onClick={CloseModal}>
           <AppointmentWrapper>
-            <FormContainer onSubmit={handleSubmit(onSubmit)}>
+            <FormModalContainer onSubmit={handleSubmit(onSubmit)}>
               <Label>Nome do Paciente</Label>
               <Input {...register('patientId')} type="number" />
               <Label>Escolha o dia e o Horário:</Label>
@@ -86,10 +82,10 @@ export function Modal({ showModal, setShowModal }: ModalProps) {
                   />
                 )}
               />
-              <Button type="submit" marginTop={68}>
+              <Button type="submit" marginTop={68} variant="">
                 Agendar
               </Button>
-            </FormContainer>
+            </FormModalContainer>
             <CloseModalButton
               aria-label="Close modal"
               onClick={() => setShowModal((prev: any) => !prev)}

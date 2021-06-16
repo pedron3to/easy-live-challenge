@@ -1,9 +1,10 @@
-import { ConsultationTextWrapper } from './styles';
+import { H2 } from '../shared/H2';
+import { ConsultationTextContainer } from './styles';
 
 export function ConsultationTitle() {
   return (
-    <ConsultationTextWrapper>
-      <h2>Consultas</h2>
-    </ConsultationTextWrapper>
+    <ConsultationTextContainer>
+      <H2>Consultas</H2>
+    </ConsultationTextContainer>
   );
 }

@@ -4,6 +4,7 @@ import ConsultationData from '../components/Consultation/ConsultationData.js';
 import { ConsultationFooter } from '../components/Consultation/ConsultationFooter.js';
 import { ConsultationTitle } from '../components/Consultation/ConsultationTitle';
 import { ConsultationContainer } from '../components/Consultation/styles';
+import { ZeroConsultation } from '../components/Consultation/ZeroConsultation';
 import { api } from '../services/api';
 
 export default function Consultation() {
@@ -38,7 +39,12 @@ export default function Consultation() {
   return (
     <ConsultationContainer>
       <ConsultationTitle />
-      <ConsultationData patients={patients} />
+      {patients.length > 0 ? (
+        <ZeroConsultation />
+      ) : (
+        <ConsultationData patients={patients} />
+      )}
+
       <ConsultationFooter
         handleCloseModal={handleCloseModal}
         openModal={openModal}

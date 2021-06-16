@@ -17,7 +17,7 @@ export const ConsultationDataContainer = styled.div`
   padding: 0 1rem;
 `;
 
-export const ConsultationTextWrapper = styled.div`
+export const ConsultationTextContainer = styled.div`
   align-items: center;
   margin-top: 32px;
   margin-left: 29px;
@@ -41,7 +41,7 @@ export const ConsultationPatientInfo = styled.div`
   margin-bottom: 2rem;
 `;
 
-export const ConsultationFooterWrapper = styled.div`
+export const ConsultationFooterContainer = styled.div`
   position: fixed;
   background: white;
   display: flex;

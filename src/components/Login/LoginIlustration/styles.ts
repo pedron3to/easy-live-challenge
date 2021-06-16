@@ -8,12 +8,22 @@ export const LoginIlustrationWrap = styled.div`
   margin-right: 300px;
 
   @media screen and (max-width: 970px) {
-    display: none;
+    margin-right: 0px;
   }
 `;
 
 export const TextWrap = styled.div`
   margin-bottom: 67px;
+  justify-content: center;
+  align-items: center;
+
+  @media screen and (max-width: 970px) {
+    margin-bottom: 44px;
+
+    > h1 {
+      font-size: 32px;
+    }
+  }
 `;
 
 export const ImageWrap = styled.div`
@@ -21,5 +31,8 @@ export const ImageWrap = styled.div`
   justify-content: space-between;
   img:nth-child(2) {
     margin-left: 22px;
+  }
+  @media screen and (max-width: 970px) {
+    display: none;
   }
 `;
