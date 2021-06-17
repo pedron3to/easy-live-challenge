@@ -15,6 +15,10 @@ export const ConsultationDataContainer = styled.div`
   max-width: 520px;
   margin: 76px auto 0 auto;
   padding: 0 1rem;
+
+  @media screen and (max-width: 700px) {
+    margin-top: 32px;
+  }
 `;
 
 export const ConsultationTextContainer = styled.div`
@@ -69,11 +73,20 @@ export const NoConsultationsContainer = styled.div`
   margin: 137px auto 0 auto;
   padding: 87px 24px 31px 24px;
 
-  > img {
+  @media screen and (max-width: 970px) {
+    max-width: 320px;
+    margin: 67px auto 0 auto;
+    padding: 0 24px 31px 24px;
+  }
+
+  > img:nth-child(1) {
+    display: block;
+    margin-left: auto;
   }
 
   > div {
     width: 206px;
+    text-align: center;
     margin: 34px auto 12px auto;
   }
 `;

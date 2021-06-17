@@ -38,17 +38,5 @@ export function Header() {
         </HeaderWrap>
       )}
     </div>
-
-    // <HeaderWrap style={{ color: 'red' }}>
-    //   <Logo />
-    //   {authenticated ? (
-    //     <DoctorWrap>
-    //       <h5>Olá, Dr. {doctorName}</h5>
-    //       <ButtonLogOut />
-    //     </DoctorWrap>
-    //   ) : (
-    //     ''
-    //   )}
-    // </HeaderWrap>
   );
 }

@@ -37,6 +37,7 @@ export const Input = styled.input`
   border: 0;
   border-bottom: 2px solid #dad2d0;
   background: transparent;
+  outline-color: #2e50d4;
 `;
 
 export const PasswordWrap = styled.div`

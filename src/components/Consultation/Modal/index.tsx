@@ -66,7 +66,7 @@ export function Modal({ showModal, setShowModal }: ModalProps) {
         <BackgroundModal ref={ModalRef} onClick={CloseModal}>
           <AppointmentWrapper>
             <FormModalContainer onSubmit={handleSubmit(onSubmit)}>
-              <Label>Nome do Paciente</Label>
+              <Label>Id do Paciente</Label>
               <Input {...register('patientId')} type="number" />
               <Label>Escolha o dia e o Horário:</Label>
               <Controller

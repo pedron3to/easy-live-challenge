@@ -22,6 +22,11 @@ export const AppointmentWrapper = styled.div`
   border-radius: 1rem;
   align-items: center;
   justify-content: center;
+
+  @media screen and (max-width: 400px) {
+    width: 100%;
+    height: 93%;
+  }
 `;
 
 export const CloseModalButton = styled(MdClose)`

@@ -39,16 +39,16 @@ export default function Consultation() {
   return (
     <ConsultationContainer>
       <ConsultationTitle />
-      {patients.length > 0 ? (
+      {patients.length === 0 ? (
         <NoConsultations />
       ) : (
-        <ConsultationData patients={patients} />
+        <ConsultationFooter
+          handleCloseModal={handleCloseModal}
+          openModal={openModal}
+          showModal={showModal}
+        />
       )}
-      <ConsultationFooter
-        handleCloseModal={handleCloseModal}
-        openModal={openModal}
-        showModal={showModal}
-      />
+      <ConsultationData patients={patients} />
     </ConsultationContainer>
   );
 }
