@@ -5,7 +5,6 @@ import {
   ConsultationPatientInfo,
   DateWrap,
 } from './styles';
-import { ZeroConsultation } from './ZeroConsultation';
 
 export default function ConsultationData({ patients }) {
   const Dateformatter = Intl.DateTimeFormat('pt-br', {

@@ -45,6 +45,13 @@ h5 {
   line-height: 1.5;
 }
 
+h4 {
+  font-weight: 700;
+  font-size:18px;
+  line-height: 1.5;
+  color:#999392;
+}
+
 h6 {
   font-size: 16px;
   line-height: 1.25;

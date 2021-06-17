@@ -3,8 +3,8 @@ import { useEffect, useState } from 'react';
 import ConsultationData from '../components/Consultation/ConsultationData.js';
 import { ConsultationFooter } from '../components/Consultation/ConsultationFooter.js';
 import { ConsultationTitle } from '../components/Consultation/ConsultationTitle';
+import { NoConsultations } from '../components/Consultation/NoConsultations';
 import { ConsultationContainer } from '../components/Consultation/styles';
-import { ZeroConsultation } from '../components/Consultation/ZeroConsultation';
 import { api } from '../services/api';
 
 export default function Consultation() {
@@ -40,11 +40,10 @@ export default function Consultation() {
     <ConsultationContainer>
       <ConsultationTitle />
       {patients.length > 0 ? (
-        <ZeroConsultation />
+        <NoConsultations />
       ) : (
         <ConsultationData patients={patients} />
       )}
-
       <ConsultationFooter
         handleCloseModal={handleCloseModal}
         openModal={openModal}

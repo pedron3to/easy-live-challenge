@@ -61,3 +61,19 @@ export const DateWrap = styled.div`
     padding-right: 2.5px;
   }
 `;
+
+export const NoConsultationsContainer = styled.div`
+  width: 100vw;
+  max-width: 520px;
+  height: 360px;
+  margin: 137px auto 0 auto;
+  padding: 87px 24px 31px 24px;
+
+  > img {
+  }
+
+  > div {
+    width: 206px;
+    margin: 34px auto 12px auto;
+  }
+`;
