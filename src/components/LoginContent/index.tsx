@@ -1,13 +1,13 @@
 import { forwardRef } from 'react';
 
 import { Form } from '../shared/Form';
-import { LoginIlustration } from './LoginIlustration';
+import { BoxFrameIllustration } from './BoxFrameIllustration';
 import { LoginWrap } from './styles';
 
-export const Login = forwardRef(() => {
+export const LoginContent = forwardRef(() => {
   return (
     <LoginWrap>
-      <LoginIlustration />
+      <BoxFrameIllustration />
       <Form />
     </LoginWrap>
   );

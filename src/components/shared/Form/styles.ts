@@ -8,6 +8,10 @@ export const FormContainer = styled.form`
   @media screen and (max-width: 500px) {
     width: 272px;
   }
+
+  > span {
+    color: tomato;
+  }
 `;
 
 export const Label = styled.label`

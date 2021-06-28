@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 
-import { Header } from '../Header';
+import { NavMenu } from '../NavMenu';
 
 interface LayoutProps {
   children: ReactNode;
@@ -9,7 +9,7 @@ interface LayoutProps {
 export function Layout({ children }: LayoutProps) {
   return (
     <>
-      <Header />
+      <NavMenu />
       {children}
     </>
   );

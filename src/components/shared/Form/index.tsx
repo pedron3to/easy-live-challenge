@@ -10,7 +10,11 @@ import { FormContainer, Label, Input, PasswordWrap } from './styles';
 export function Form() {
   const { onSubmit } = useContext(Context);
   const [passwordShown, setPasswordShown] = useState(false);
-  const { register, handleSubmit } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
   function togglePasswordVisibility() {
     setPasswordShown(!passwordShown);
@@ -22,12 +26,21 @@ export function Form() {
 
   return (
     <FormContainer onSubmit={handleSubmit(onSubmit)}>
-      <Label>E-mail</Label>
+      <Label htmlFor="email">E-mail</Label>
       <Input
+        id="email"
+        aria-invalid={errors.email ? 'true' : 'false'}
+        {...register('email', {
+          required: 'Campo obrigatório',
+          pattern: {
+            value: /\S+@\S+\.\S+/,
+            message: 'Digite um e-mail válido',
+          },
+        })}
         type="email"
         placeholder="Digite seu email"
-        {...register('email')}
       />
+      {errors.email && <span role="alert">{errors.email.message}</span>}
       <Label>
         Senha
         <i>

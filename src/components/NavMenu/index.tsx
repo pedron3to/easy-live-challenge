@@ -20,7 +20,7 @@ const DoctorWrap = styled.div`
   }
 `;
 
-export function Header() {
+export function NavMenu() {
   const { authenticated, doctorName } = useContext(Context);
   return (
     <div>

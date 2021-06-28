@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 
-import ConsultationData from '../components/Consultation/ConsultationData.js';
+import { BlankState } from '../components/Consultation/BlankState';
 import { ConsultationFooter } from '../components/Consultation/ConsultationFooter.js';
-import { ConsultationTitle } from '../components/Consultation/ConsultationTitle';
-import { NoConsultations } from '../components/Consultation/NoConsultations';
+import { ConsultationHeader } from '../components/Consultation/ConsultationHeader';
+import { ConsultationList } from '../components/Consultation/ConsultationList/index.js';
 import { ConsultationContainer } from '../components/Consultation/styles';
 import { api } from '../services/api';
 
@@ -38,17 +38,17 @@ export default function Consultation() {
 
   return (
     <ConsultationContainer>
-      <ConsultationTitle />
+      <ConsultationHeader />
       {patients.length === 0 ? (
-        <NoConsultations />
+        <BlankState />
       ) : (
-        <ConsultationFooter
-          handleCloseModal={handleCloseModal}
-          openModal={openModal}
-          showModal={showModal}
-        />
+        <ConsultationList patients={patients} />
       )}
-      <ConsultationData patients={patients} />
+      <ConsultationFooter
+        handleCloseModal={handleCloseModal}
+        openModal={openModal}
+        showModal={showModal}
+      />
     </ConsultationContainer>
   );
 }

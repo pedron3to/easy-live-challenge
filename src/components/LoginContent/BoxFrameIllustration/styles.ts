@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const LoginIlustrationWrap = styled.div`
+export const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -12,7 +12,7 @@ export const LoginIlustrationWrap = styled.div`
   }
 `;
 
-export const TextWrap = styled.div`
+export const Header = styled.div`
   margin-bottom: 67px;
   justify-content: center;
   align-items: center;
@@ -26,7 +26,7 @@ export const TextWrap = styled.div`
   }
 `;
 
-export const ImageWrap = styled.div`
+export const ImageWrapper = styled.div`
   height: 265px;
   justify-content: space-between;
   img:nth-child(2) {

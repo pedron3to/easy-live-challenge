@@ -1,12 +1,7 @@
-import { Button } from '../shared/Button';
-import { ConsultationDataTitle } from './ConsultationDataTitle';
-import {
-  ConsultationDataContainer,
-  ConsultationPatientInfo,
-  DateWrap,
-} from './styles';
+import { Button } from '../../shared/Button';
+import { Container, SubTitle, DateWrapper, List } from './styles';
 
-export default function ConsultationData({ patients }) {
+export function ConsultationList({ patients }) {
   const Dateformatter = Intl.DateTimeFormat('pt-br', {
     dateStyle: 'short',
   });
@@ -17,29 +12,29 @@ export default function ConsultationData({ patients }) {
   });
 
   return (
-    <ConsultationDataContainer>
-      <ConsultationDataTitle>
-        {patients.length} consultas agendadas
-      </ConsultationDataTitle>
+    <Container>
+      <SubTitle>
+        <h6>{patients.length} consultas agendadas</h6>
+      </SubTitle>
 
       {patients.map(
         ({ id, date, patient: { patiendId, first_name, last_name } }) => (
-          <ConsultationPatientInfo key={id}>
+          <List key={id}>
             <div>
-              <div>
+              <>
                 {first_name}
                 {last_name}
-              </div>
-              <DateWrap>
+              </>
+              <DateWrapper>
                 <p key={patiendId}>{Dateformatter.format(Date.parse(date))}</p>
                 <p>às</p>
                 <p>{Hourformatter.format(Date.parse(date))}</p>
-              </DateWrap>
+              </DateWrapper>
             </div>
             <Button>Atender</Button>
-          </ConsultationPatientInfo>
+          </List>
         ),
       )}
-    </ConsultationDataContainer>
+    </Container>
   );
 }
