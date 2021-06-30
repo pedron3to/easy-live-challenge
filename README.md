@@ -23,6 +23,11 @@ This project was made using the follow technologies:
 * [JSON-Server](https://www.npmjs.com/package/json-server)
 * [React Hook Form](https://react-hook-form.com/)
 * [React](https://reactjs.org/)
+* [React-testing-library](https://testing-library.com/)
+* [Jest](https://jestjs.io/)
+* [React Datepicker](https://reactdatepicker.com/)
+* [React Router Dom](https://reactrouter.com/)
+* [Styled Components](https://styled-components.com/)
 
 
 # :computer: How to run
