@@ -8,10 +8,6 @@ export const FormContainer = styled.form`
   @media screen and (max-width: 500px) {
     width: 272px;
   }
-
-  > span {
-    color: tomato;
-  }
 `;
 
 export const Label = styled.label`
@@ -47,8 +43,23 @@ export const Input = styled.input`
 export const PasswordWrap = styled.div`
   position: relative;
   display: flex;
+  flex-direction: column;
   margin-bottom: 68px;
+  > div {
+    display: flex;
+    position: relative;
+    flex-direction: row;
 
+    > i {
+      position: absolute;
+      top: 20%;
+      right: 0%;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
   @media screen and (max-width: 500px) {
     margin-bottom: 40px;
   }

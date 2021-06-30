@@ -6,8 +6,8 @@ import 'react-datepicker/dist/react-datepicker.css';
 import { Controller, useForm } from 'react-hook-form';
 
 import { api } from '../../../services/api';
+import { Input, Label } from '../../LoginContent/Form/styles';
 import { Button } from '../../shared/Button';
-import { Input, Label } from '../../shared/Form/styles';
 import { FormModalContainer } from './formStyles';
 import {
   AppointmentWrapper,

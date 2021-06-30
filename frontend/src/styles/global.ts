@@ -87,6 +87,15 @@ button {
 
 }
 
+span {
+    margin-top: 4px;
+    margin-bottom: 4px;
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 1.42;
+    color: tomato;
+  }
+
 .react-datepicker-ignore-onclickoutside{
   border: none;
 }

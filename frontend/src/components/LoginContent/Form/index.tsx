@@ -4,7 +4,7 @@ import { AiOutlineQuestionCircle } from 'react-icons/ai';
 import { BsEye, BsEyeSlash } from 'react-icons/bs';
 
 import { Context } from '../../../Context/AuthContext';
-import { Button } from '../Button';
+import { Button } from '../../shared/Button';
 import { FormContainer, Label, Input, PasswordWrap } from './styles';
 
 export function Form() {
@@ -41,30 +41,41 @@ export function Form() {
         placeholder="Digite seu email"
       />
       {errors.email && <span role="alert">{errors.email.message}</span>}
-      <Label>
+      <Label htmlFor="password">
         Senha
         <i>
           <AiOutlineQuestionCircle color="#999392" size={17} />
         </i>
       </Label>
       <PasswordWrap>
-        <Input
-          type={passwordShown ? 'text' : 'password'}
-          placeholder="digite sua senha"
-          {...register('password')}
-        />
-        <i
-          onClick={togglePasswordVisibility}
-          onKeyPress={OnkeyPasswordVisibility}
-          role="button"
-          tabIndex={0}
-        >
-          {passwordShown ? (
-            <BsEye color="#999392" size={17} />
-          ) : (
-            <BsEyeSlash color="#999392" size={17} />
-          )}
-        </i>
+        <div>
+          <Input
+            id="password"
+            type={passwordShown ? 'text' : 'password'}
+            placeholder="digite sua senha"
+            {...register('password', {
+              required: 'Digite uma senha válida',
+              minLength: {
+                value: 6,
+                message: 'A senha precisa conter pelo menos 6 números',
+              },
+            })}
+          />
+          <i
+            onClick={togglePasswordVisibility}
+            onKeyPress={OnkeyPasswordVisibility}
+            aria-pressed="false"
+            role="button"
+            tabIndex={0}
+          >
+            {passwordShown ? (
+              <BsEye color="#999392" size={17} />
+            ) : (
+              <BsEyeSlash color="#999392" size={17} />
+            )}
+          </i>
+        </div>
+        {errors.password && <span role="alert">{errors.password.message}</span>}
       </PasswordWrap>
       <Button type="submit" variant="">
         Entrar
