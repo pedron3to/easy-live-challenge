@@ -11,9 +11,9 @@
 
 # 📌 Contents
 
-* [Technologies](#technologies)
-* [How to Run](#how-to-run)
-* [Contributing](#sparkles-issues)
+* [Technologies](#rocket-technologies)
+* [How to Run](#computer-how-to-run)
+* [Contributing](#sparkles-contributing)
 * [License](#page_facing_up-license)
 
 # :rocket: Technologies
