@@ -29,22 +29,13 @@ This project was made using the follow technologies:
 
 ```bash
 # Clone Repository
-$ git clone https://github.com/pedron3to/conexa.git
+$ git clone https://github.com/pedron3to/easy-live-challenge.git
 ```
 
-```bash
-$ cd /backend
-# Install Dependencies
-$ yarn
-```
-
-```bash
-$ yarn start
-```
 
 ```bash
 $ cd ..
-$ cd /frontend
+$ cd /easy-live-challenge
 # Install Dependencies
 $ yarn
 ```
@@ -53,7 +44,7 @@ $ yarn
 $ yarn start
 ```
 
-Go to http://localhost:3000/login to see the result.
+Go to http://localhost:3000 to see the result.
 # :sparkles: Contributing
 
 - Fork this repository;
