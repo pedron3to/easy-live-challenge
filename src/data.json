@@ -1,0 +1,12 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "imagem": "linkda imagem",
+      "title": "Wegner CH825 Credenza",
+      "description": "Hans J. Wegner designed the CH825 in 1959 as one of the several credenzas that, with their calm appearance and functional interior, became sought after at auctions many years later. In 2014, Carl Hansen & Søn relaunched one of these credenzas, CH825, on the 100th anniversary of Wegner’s birth.",
+      "avaiableSizes": [],
+      "price": 29.9
+    }
+  ]
+}

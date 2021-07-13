@@ -1,60 +1,70 @@
+# Getting Started with Create React App
 
-<p align="center">
-   :computer: Application developed from scratch. Project build for the Easy Live challenge. | <a href="https://www.easylive.com.br/">Easy Live</a>
-</p>
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-<div align="center">
-  <sub> Made by
-    <a href="https://github.com/pedron3to">Pedro Cassiano
-  </sub>
-</div>
+## Available Scripts
 
-# 📌 Contents
+In the project directory, you can run:
 
-* [Technologies](#rocket-technologies)
-* [How to Run](#computer-how-to-run)
-* [Contributing](#sparkles-contributing)
-* [License](#page_facing_up-license)
+### `yarn start`
 
-# :rocket: Technologies
-This project was made using the follow technologies:
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-* [Typescript](https://www.typescriptlang.org/)
-* [React](https://reactjs.org/)
-* [React Router Dom](https://reactrouter.com/)
-* [Styled Components](https://styled-components.com/)
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
 
+### `yarn test`
 
-# :computer: How to run
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-```bash
-# Clone Repository
-$ git clone https://github.com/pedron3to/easy-live-challenge.git
-```
+### `yarn build`
 
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-```bash
-$ cd ..
-$ cd /easy-live-challenge
-# Install Dependencies
-$ yarn
-```
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-```bash
-$ yarn start
-```
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-Go to http://localhost:3000 to see the result.
-# :sparkles: Contributing
+### `yarn eject`
 
-- Fork this repository;
-- Create a branch with your feature: `git checkout -b my-feature`;
-- Commit your changes: `git commit -m 'feat: My new feature'`;
-- Push to your branch: `git push origin my-feature`.
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-# :page_facing_up: License
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-This project is under the [MIT license](./LICENSE).
-Made by [Pedro Cassiano](https://www.linkedin.com/in/pedro-cassiano-de-araujo-neto-sartor-70242854/).
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-Thank you! 🌠
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+
+### Analyzing the Bundle Size
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+
+### Making a Progressive Web App
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `yarn build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
