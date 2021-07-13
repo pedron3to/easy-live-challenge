@@ -1,6 +1,6 @@
 
 <p align="center">
-   :computer: Application developed from scratch. Project build for the Conexa challenge. | <a href="https://www.conexasaude.com.br/">Conexa</a>
+   :computer: Application developed from scratch. Project build for the Easy Live challenge. | <a href="https://www.easylive.com.br/">Easy Live</a>
 </p>
 
 <div align="center">
@@ -20,12 +20,7 @@
 This project was made using the follow technologies:
 
 * [Typescript](https://www.typescriptlang.org/)
-* [JSON-Server](https://www.npmjs.com/package/json-server)
-* [React Hook Form](https://react-hook-form.com/)
 * [React](https://reactjs.org/)
-* [React-testing-library](https://testing-library.com/)
-* [Jest](https://jestjs.io/)
-* [React Datepicker](https://reactdatepicker.com/)
 * [React Router Dom](https://reactrouter.com/)
 * [Styled Components](https://styled-components.com/)
 
