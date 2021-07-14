@@ -14,8 +14,8 @@ export const Title = styled.div`
   margin-bottom: 2rem;
 `;
 export const ProductSection = styled.div`
-  display: flex;
-  justify-content: space-between;
-
-  width: 100%;
+  display: grid;
+  width: 1180px;
+  grid-template-columns: 382.6px 382.6px 382.6px;
+  column-gap: 1rem;
 `;

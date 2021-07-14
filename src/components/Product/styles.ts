@@ -1,17 +1,28 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  margin-top: 10px;
+  height: 620px;
+  padding: 2rem;
+
+  &:hover {
+    box-shadow: ${({ theme }) => theme.shadow};
+  }
 `;
-export const Image = styled.div``;
+export const Image = styled.div`
+  width: 318.6px;
+  height: 350px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+`;
 export const Title = styled.div`
+  height: 90px;
   margin-top: 2rem;
   color: ${({ theme }) => theme.colors.textSemiDark};
   font-size: ${({ theme }) => theme.font.small};
   font-weight: bold;
 `;
 export const Price = styled.div`
-  margin-top: 0.625rem;
   color: ${({ theme }) => theme.colors.textDark};
   font-size: ${({ theme }) => theme.font.medium};
   font-weight: bold;

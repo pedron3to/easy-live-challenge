@@ -15,5 +15,5 @@ export const theme = {
     textSemiDark: '#838383',
     textLight: '#b5b5b5',
   },
-  shadow: '0px .25rem .75rem rgba(0, 0, 0, 0.05)',
+  shadow: '0px .25rem .75rem rgba(0, 0, 0, 0.4)',
 };

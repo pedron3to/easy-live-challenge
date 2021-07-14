@@ -1,6 +1,7 @@
 import { Router } from 'react-router-dom';
 import styled, { ThemeProvider } from 'styled-components';
 
+import { Footer } from './components/Footer';
 import { Layout } from './components/Layout';
 import history from './history.js';
 import GlobalStyle from './styles/global';
@@ -21,6 +22,7 @@ function App() {
           <Layout />
           <GlobalStyle />
         </Container>
+        <Footer />
       </Router>
     </ThemeProvider>
   );
