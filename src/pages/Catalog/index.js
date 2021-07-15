@@ -1,9 +1,8 @@
 import axios from 'axios';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
 
-import { Product } from '../../components/Product';
+import { ProductCard } from '../../components/ProductCard';
 import { setProducts } from '../../redux/actions/productActions';
 import { Container, ProductSection, Title } from './styles';
 
@@ -28,11 +27,10 @@ function Catalog() {
   const renderList = products.map(product => {
     const { id, price, image, title } = product;
     return (
-      <Link to={`/products/${id}`} key={id}>
-        <Product price={price} title={title} src={image} />
-      </Link>
+      <ProductCard key={id} price={price} title={title} src={image} id={id} />
     );
   });
+
   return (
     <Container>
       <Title>All PRODUCTS</Title>

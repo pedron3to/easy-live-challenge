@@ -1,29 +1,45 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  height: 620px;
-  padding: 2rem;
-
-  &:hover {
-    box-shadow: ${({ theme }) => theme.shadow};
-  }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 110px 0;
 `;
-export const Image = styled.div`
-  width: 318.6px;
-  height: 350px;
+export const ProductImage = styled.div`
+  width: 580px;
+  height: 580px;
+
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
 `;
-export const Title = styled.div`
-  height: 90px;
-  margin-top: 2rem;
-  color: ${({ theme }) => theme.colors.textSemiDark};
+export const ProductInfo = styled.div`
+  width: 530px;
+`;
+export const Code = styled.div`
   font-size: ${({ theme }) => theme.font.small};
   font-weight: bold;
+  color: ${({ theme }) => theme.colors.textSemiDark};
+`;
+export const Title = styled.div`
+  font-size: ${({ theme }) => theme.font.xLarge};
+  font-weight: bold;
+  color: ${({ theme }) => theme.colors.textDark};
+
+  margin-top: 2rem;
+`;
+export const Description = styled.div`
+  font-size: ${({ theme }) => theme.font.medium};
+  font-weight: 500;
+  color: ${({ theme }) => theme.colors.textSemiDark};
+
+  margin-top: 2rem;
 `;
 export const Price = styled.div`
-  color: ${({ theme }) => theme.colors.textDark};
-  font-size: ${({ theme }) => theme.font.medium};
+  font-size: ${({ theme }) => theme.font.xLarge};
   font-weight: bold;
+  color: ${({ theme }) => theme.colors.textDark};
+
+  margin-top: 1rem;
 `;

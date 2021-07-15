@@ -3,34 +3,55 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
-import { selectedProducts } from '../../redux/actions/productActions';
+import { Product } from '../../components/Product';
+import {
+  selectedProducts,
+  removeSelectedProducts,
+} from '../../redux/actions/productActions';
 
 function ProductDetail() {
   const product = useSelector(state => state.product);
+
+  const { title, price, description, image, id } = product;
 
   const { productId } = useParams();
 
   const dispatch = useDispatch();
 
   const fetchProductDetail = async () => {
-    try {
-      const response = await axios.get(
-        `https://fakestoreapi.com/products/${productId}`,
-      );
-      console.log(response);
-      dispatch(selectedProducts(response.data));
-    } catch (err) {
-      console.log(err);
-    }
+    const response = await axios
+      .get(`https://fakestoreapi.com/products/${productId}`)
+      .catch(err => console.log('err', err));
+
+    dispatch(selectedProducts(response.data));
   };
 
   useEffect(() => {
-    if (productId && productId !== '') fetchProductDetail();
+    if (productId && productId !== '') {
+      fetchProductDetail();
+    }
+    return () => {
+      dispatch(removeSelectedProducts());
+    };
   }, [productId]);
 
   console.log(product);
 
-  return <div>adsdas</div>;
+  return (
+    <>
+      {Object.keys(product).length === 0 ? (
+        <div>...loading</div>
+      ) : (
+        <Product
+          title={title}
+          id={id}
+          description={description}
+          image={image}
+          price={price}
+        />
+      )}
+    </>
+  );
 }
 
 export default ProductDetail;

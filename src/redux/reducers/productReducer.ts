@@ -17,11 +17,22 @@ export function productReducer(
   }
 }
 
-export function SelectedProductReducer(state = {}, { type, payload }: any) {
+export function selectedProductReducer(state = {}, { type, payload }: any) {
   switch (type) {
     case ActionTypes.SELECTED_PRODUCT:
       return { ...state, ...payload };
-      break;
+
+    case ActionTypes.REMOVE_SELECTED_PRODUCT:
+      return {};
+    default:
+      return state;
+  }
+}
+
+export function shopReducer(state: any, { type, payload }: any) {
+  switch (type) {
+    case ActionTypes.ADD_TO_CART:
+      return { ...state, ...payload };
 
     default:
       return state;
