@@ -1,4 +1,4 @@
-import { Cart } from './Cart';
+import Cart from './Cart';
 import { Logo } from './Logo';
 import { Menu } from './Menu';
 import { Container } from './styles';

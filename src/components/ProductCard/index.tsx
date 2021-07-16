@@ -1,7 +1,7 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import { addToCart } from '../../redux/actions/productActions';
 import { Button } from '../shared/Button';
 import { Container, Image, Title, Price, ButtonContainer } from './styles';
 
@@ -10,9 +10,16 @@ interface ProductCardProps {
   price: number;
   src: string;
   id: number;
+  addToCart: () => void;
 }
 
-export function ProductCard({ price, title, src, id }: ProductCardProps) {
+export function ProductCard({
+  price,
+  title,
+  src,
+  id,
+  addToCart,
+}: ProductCardProps) {
   const [style, setStyle] = useState(false);
 
   return (
@@ -35,7 +42,12 @@ export function ProductCard({ price, title, src, id }: ProductCardProps) {
       </Link>
       <ButtonContainer>
         {style ? (
-          <Button marginTop={10} onClick={() => addToCart(id)}>
+          <Button
+            marginTop={10}
+            onClick={() => {
+              addToCart;
+            }}
+          >
             Add to Cart
           </Button>
         ) : null}

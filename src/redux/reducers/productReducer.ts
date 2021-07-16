@@ -1,8 +1,12 @@
+/* eslint-disable no-case-declarations */
+/* eslint-disable prettier/prettier */
 import { ActionTypes } from '../constants/action-types';
+
 
 const initialState = {
   products: [],
   cart: [],
+  currentItem: null,
 };
 
 export function productReducer(
@@ -11,6 +15,9 @@ export function productReducer(
 ) {
   switch (type) {
     case ActionTypes.SET_PRODUCTS:
+      return { ...state, products: payload };
+
+    case ActionTypes.FETCH_PRODUCTS:
       return { ...state, products: payload };
 
     default:
@@ -30,26 +37,23 @@ export function selectedProductReducer(state = {}, { type, payload }: any) {
   }
 }
 
-export function shopReducer(state: any, { type, payload }: any) {
+export function AddtoCart(state = initialState, { type, payload }: any) {
   switch (type) {
-    case ActionTypes.ADD_TO_CART:
-      // eslint-disable-next-line no-case-declarations
-      const item = state.products.find(
-        (product: any) => product.id === payload.id,
-      );
-      // eslint-disable-next-line no-case-declarations
-      const inCart = state.cart.find(() => item.id === payload.id);
+    case ActionTypes.ADD_ITEMS:
+      const check = state.cart.find((item: any) => item.id === payload);
 
-      return {
-        ...state,
-        cart: inCart
-          ? state.cart.map((item: any) =>
-              item.id === payload.id ? { ...item, qty: item.qty + 1 } : item,
-            )
-          : [...state.cart, { ...item, qty: 1 }],
-      };
+      if (!check) {
+        const items = state.products.filter((item: any) => item.id === payload);
+
+        const itemsCart = [...state.cart, ...items]
+
+        return { ...state, cart: itemsCart }
+      }
+
+      return { ...state }
 
     default:
       return state;
   }
 }
+

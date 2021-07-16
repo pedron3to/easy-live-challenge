@@ -2,9 +2,11 @@ import { combineReducers } from 'redux';
 
 import { productReducer, selectedProductReducer } from './productReducer';
 
-const reducers = combineReducers({
+const rootReducers = combineReducers({
   allProducts: productReducer,
   product: selectedProductReducer,
 });
 
-export default reducers;
+export default rootReducers;
+
+export type RootState = ReturnType<typeof rootReducers>;

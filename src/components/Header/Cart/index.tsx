@@ -4,8 +4,9 @@ import { Link } from 'react-router-dom';
 
 import { Container, CounterCart } from './styles';
 
-export function Cart() {
-  const [cartCount, setCartCount] = useState(2);
+function Cart() {
+  const [cartCount, setCartCount] = useState(0);
+
   return (
     <Link to="/checkout">
       <Container>
@@ -15,3 +16,5 @@ export function Cart() {
     </Link>
   );
 }
+
+export default Cart;
