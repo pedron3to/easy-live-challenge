@@ -2,6 +2,7 @@ import { ActionTypes } from '../constants/action-types';
 
 const initialState = {
   products: [],
+  cart: [],
 };
 
 export function productReducer(
@@ -32,7 +33,21 @@ export function selectedProductReducer(state = {}, { type, payload }: any) {
 export function shopReducer(state: any, { type, payload }: any) {
   switch (type) {
     case ActionTypes.ADD_TO_CART:
-      return { ...state, ...payload };
+      // eslint-disable-next-line no-case-declarations
+      const item = state.products.find(
+        (product: any) => product.id === payload.id,
+      );
+      // eslint-disable-next-line no-case-declarations
+      const inCart = state.cart.find(() => item.id === payload.id);
+
+      return {
+        ...state,
+        cart: inCart
+          ? state.cart.map((item: any) =>
+              item.id === payload.id ? { ...item, qty: item.qty + 1 } : item,
+            )
+          : [...state.cart, { ...item, qty: 1 }],
+      };
 
     default:
       return state;

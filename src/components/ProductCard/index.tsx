@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
+import { addToCart } from '../../redux/actions/productActions';
 import { Button } from '../shared/Button';
 import { Container, Image, Title, Price, ButtonContainer } from './styles';
 
@@ -33,7 +34,11 @@ export function ProductCard({ price, title, src, id }: ProductCardProps) {
         <Price>$ {price}</Price>
       </Link>
       <ButtonContainer>
-        {style ? <Button marginTop={10}>Add to Cart</Button> : null}
+        {style ? (
+          <Button marginTop={10} onClick={() => addToCart(id)}>
+            Add to Cart
+          </Button>
+        ) : null}
       </ButtonContainer>
     </Container>
   );

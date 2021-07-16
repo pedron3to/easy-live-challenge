@@ -5,11 +5,12 @@ import { ButtonContainer } from './styles';
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
   marginTop?: number;
+  onClick?: () => void;
 }
 
-export function Button({ children, marginTop, ...rest }: ButtonProps) {
+export function Button({ children, marginTop, onClick, ...rest }: ButtonProps) {
   return (
-    <ButtonContainer marginTop={marginTop} {...rest}>
+    <ButtonContainer marginTop={marginTop} {...rest} onClick={onClick}>
       {children}
     </ButtonContainer>
   );
