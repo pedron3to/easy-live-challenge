@@ -45,7 +45,7 @@ function Cart({ cart }) {
     <Container>
       {totalItems === 0 ? (
         <MessageContainer>
-          <Message>O carrinho está vazio =(</Message>
+          <Message>The Cart is empty =(</Message>
           <Link to="/">
             <Button type="button">Continue to Shopping</Button>
           </Link>
