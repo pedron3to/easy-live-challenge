@@ -21,7 +21,7 @@ function Cart({ cart }: any) {
     <Link to="/checkout">
       <Container>
         <GiShoppingCart size={24} color="#838383" />
-        <CounterCart>{cartCount}</CounterCart>
+        {cartCount === 0 ? null : <CounterCart>{cartCount}</CounterCart>}
       </Container>
     </Link>
   );

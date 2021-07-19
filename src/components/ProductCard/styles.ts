@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const Container = styled.div`
   height: 480px;
   padding: 2rem;
+  transition: 0.31s;
 
   &:hover {
     box-shadow: ${({ theme }) => theme.shadow};

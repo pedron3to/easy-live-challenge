@@ -2,6 +2,11 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   display: flex;
+  padding-left: 6rem;
+
+  @media screen and(max-width: 575px) {
+    padding-left: 1rem;
+  }
 `;
 
 export const CounterCart = styled.span`

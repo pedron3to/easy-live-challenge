@@ -20,9 +20,10 @@ import {
   TotalSummaryContainer,
   ButtonsContainer,
   Container,
+  Message,
 } from './styles';
 
-function Checkout({ cart }) {
+function Cart({ cart }) {
   const [totalPrice, setTotalPrice] = useState(0);
   const [totalItems, setTotalItems] = useState(0);
 
@@ -41,34 +42,45 @@ function Checkout({ cart }) {
 
   return (
     <Container>
-      <Table>
-        <Thead>
-          <TrHead>
-            <ThProduct>Product</ThProduct>
-            <Th>Price</Th>
-            <Th>Amount</Th>
-            <ThTotal>Total</ThTotal>
-          </TrHead>
-        </Thead>
-        <Tbody>
-          {cart.map(item => (
-            <ProductRow key={item.id} item={item} />
-          ))}
-        </Tbody>
-      </Table>
-      <SummaryContainer>
-        <TotalSummaryContainer>
-          Total: <h4>${totalPrice.toFixed(2)}</h4>
-        </TotalSummaryContainer>
-        <ButtonsContainer>
-          <Button type="button" variant="outlined">
-            Proceed To Checkout
-          </Button>
-          <Link to="/catalog">
+      {totalItems === 0 ? (
+        <>
+          <Message>O carrinho está vazio =(</Message>
+          <Link to="/">
             <Button type="button">Continue to Shopping</Button>
           </Link>
-        </ButtonsContainer>
-      </SummaryContainer>
+        </>
+      ) : (
+        <>
+          <Table>
+            <Thead>
+              <TrHead>
+                <ThProduct>Product</ThProduct>
+                <Th>Price</Th>
+                <Th>Amount</Th>
+                <ThTotal>Total</ThTotal>
+              </TrHead>
+            </Thead>
+            <Tbody>
+              {cart.map(item => (
+                <ProductRow key={item.id} item={item} />
+              ))}
+            </Tbody>
+          </Table>
+          <SummaryContainer>
+            <TotalSummaryContainer>
+              Total: <h4>${totalPrice.toFixed(2)}</h4>
+            </TotalSummaryContainer>
+            <ButtonsContainer>
+              <Button type="button" variant="outlined">
+                Proceed To Checkout
+              </Button>
+              <Link to="/">
+                <Button type="button">Continue to Shopping</Button>
+              </Link>
+            </ButtonsContainer>
+          </SummaryContainer>
+        </>
+      )}
     </Container>
   );
 }
@@ -86,4 +98,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Checkout);
+export default connect(mapStateToProps, mapDispatchToProps)(Cart);

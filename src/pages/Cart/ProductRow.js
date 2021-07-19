@@ -26,13 +26,11 @@ function ProductRow({ item, adjustQty, removeFromCart }) {
   const [total, setTotal] = useState(0);
 
   function increment() {
-    setInput(prev => prev + 1);
-    adjustQty(item.id, input);
+    setInput(prevState => prevState + 1);
   }
 
   function decrement() {
-    setInput(prev => prev - 1);
-    adjustQty(item.id, input);
+    setInput(prevState => prevState - 1);
   }
 
   const onChangeHandler = e => {
@@ -41,10 +39,10 @@ function ProductRow({ item, adjustQty, removeFromCart }) {
   };
 
   useEffect(() => {
-    let items = 0;
-
-    items += item.qty;
-    setTotal(items);
+    // let items = 0;
+    // items += item.qty;
+    setTotal(input * item.price);
+    adjustQty(item.id, input);
   }, [total, setTotal, input, setInput]);
 
   return (
@@ -55,7 +53,6 @@ function ProductRow({ item, adjustQty, removeFromCart }) {
             backgroundImage: `url(/${item.img})`,
           }}
         />
-
         <Description>{item.title}</Description>
       </TdImage>
       <Td>${item.price}</Td>
@@ -79,7 +76,7 @@ function ProductRow({ item, adjustQty, removeFromCart }) {
       </Td>
       <TdTotal>
         <TotalContainer>
-          <Span>${(total * item.price).toFixed(2)}</Span>
+          <Span>${(input * item.price).toFixed(2)}</Span>
           <Button type="button" onClick={() => removeFromCart(item.id)}>
             <FiTrash size={20} color="#b5b5b5" />
           </Button>

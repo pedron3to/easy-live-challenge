@@ -1,6 +1,6 @@
 import { BrowserRouter } from 'react-router-dom';
 
-import Routes from '../../routes';
+import Routes from '../../routes.js';
 import { Header } from '../Header';
 
 export function Layout() {

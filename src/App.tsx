@@ -1,7 +1,7 @@
 import { Router } from 'react-router-dom';
 import styled, { ThemeProvider } from 'styled-components';
 
-import { Layout } from './components/Layout';
+import { Layout } from './components/Layout/index.js';
 import history from './history.js';
 import GlobalStyle from './styles/global';
 import { theme } from './styles/theme';
@@ -25,5 +25,4 @@ function App() {
     </ThemeProvider>
   );
 }
-
 export default App;

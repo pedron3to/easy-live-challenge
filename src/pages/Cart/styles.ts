@@ -175,7 +175,7 @@ export const AmountContainer = styled.div`
 
 export const Input = styled.input`
   text-align: center;
-  padding: 10px;
+  padding: 4px;
   margin-left: 0.4rem;
   width: 30px;
   border-radius: 10px;
@@ -266,4 +266,14 @@ export const ButtonsContainer = styled.div`
     align-items: flex-start;
     margin-top: 1.5rem;
   }
+`;
+
+export const Message = styled.div`
+  width: 100%;
+  height: 500px;
+  text-align: center;
+  padding-top: 5rem;
+  font-size: ${({ theme }) => theme.font.xLarge};
+  color: ${({ theme }) => theme.colors.textDark};
+  font-weight: Bold;
 `;

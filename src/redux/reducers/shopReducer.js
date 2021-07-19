@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 /* eslint-disable no-param-reassign */
 import * as actionTypes from '../constants/action-types';
 
@@ -68,7 +69,7 @@ const INITIAL_STATE = {
 
     {
       id: 8,
-      img: 'images/im8.png',
+      img: 'images/im2.png',
       title: 'bob marley shoes',
       price: 55.99,
       details:
@@ -82,21 +83,19 @@ const INITIAL_STATE = {
 const shopReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case actionTypes.ADD_TO_CART: {
-      // Great Item data from products array
       const item = state.products.find(
         product => product.id === action.payload.id,
       );
-      // Check if Item is in cart already
       const inCart = state.cart.find(item => item.id === action.payload.id);
 
       return {
         ...state,
         cart: inCart
           ? state.cart.map(item =>
-              item.id === action.payload.id
-                ? { ...item, qty: item.qty + 1 }
-                : item,
-            )
+            item.id === action.payload.id
+              ? { ...item, qty: item.qty + 1 }
+              : item,
+          )
           : [...state.cart, { ...item, qty: 1 }],
       };
     }

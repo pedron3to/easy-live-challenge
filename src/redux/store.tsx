@@ -6,9 +6,7 @@ import rootReducers from './reducers';
 
 const initialState = {};
 
-const composeEnhancers = composeWithDevTools({
-  // Specify name here, actionsBlacklist, actionsCreators and other options if needed
-});
+const composeEnhancers = composeWithDevTools({});
 
 export const store = createStore(
   rootReducers,
