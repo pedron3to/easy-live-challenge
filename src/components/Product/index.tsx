@@ -1,6 +1,8 @@
+import { motion } from 'framer-motion';
+import styled from 'styled-components';
+
 import { Button } from '../shared/Button';
 import {
-  Container,
   ProductImage,
   ProductInfo,
   Code,
@@ -18,6 +20,22 @@ interface ProductProps {
   addToCart: () => void;
 }
 
+const Container = styled(motion.div)`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 110px 0;
+
+  @media screen and (max-width: 970px) {
+    flex-direction: column;
+    margin: 80px 0;
+  }
+
+  @media screen and (max-width: 575px) {
+    margin-top: 2rem;
+  }
+`;
+
 export function Product({
   title,
   price,
@@ -27,7 +45,7 @@ export function Product({
   addToCart,
 }: ProductProps) {
   return (
-    <Container>
+    <Container initial="exit" animate="enter" exit="exit">
       <ProductImage
         style={{
           backgroundImage: `url(/${image})`,

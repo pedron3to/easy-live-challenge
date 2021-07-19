@@ -1,3 +1,4 @@
+import { AnimatePresence } from 'framer-motion';
 import { connect } from 'react-redux';
 import { Redirect, Route } from 'react-router-dom';
 
@@ -8,7 +9,7 @@ import ProductDetail from './pages/ProductDetail/index.js';
 
 function Routes({ current }: any) {
   return (
-    <>
+    <AnimatePresence exitBeforeEnter initial={false}>
       <Route path="/" exact component={Home} />
       <Route path="/catalog" component={Catalog} />
       {!current ? (
@@ -18,7 +19,7 @@ function Routes({ current }: any) {
       )}
 
       <Route path="/checkout" component={Checkout} />
-    </>
+    </AnimatePresence>
   );
 }
 

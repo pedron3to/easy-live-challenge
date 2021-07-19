@@ -1,44 +1,48 @@
-/* import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux'; */
-
-/* import { useEffect } from 'react'; */
+import { motion } from 'framer-motion';
 import { connect } from 'react-redux';
+import styled from 'styled-components';
 
 import ProductCard from '../../components/ProductCard/index.js';
-/* import { fetchProducts, AddToCart } from '../../redux/actions/productActions'; */
-import { Container, ProductSection, Title } from './styles';
+import { Container, Title } from './styles';
 
 function Catalog({ products }) {
-  /*  const products = useSelector(state => state.allProducts.products);
-
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(fetchProducts());
-  }, []); */
-  /*
-  useEffect(() => {
-    props.getItems();
-  }, []);
-
-  const AddToCart = id => {
-    props.AddToCart(id);
-  }; */
-
-  // eslint-disable-next-line react/destructuring-assignment
-
   const renderList = products.map(product => {
     return <ProductCard key={product.id} product={product} />;
   });
 
+  const ProductSection = styled(motion.div)`
+    display: grid;
+    width: 100%;
+
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+
+    @media screen and (max-width: 1220px) {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    @media screen and (max-width: 990px) {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @media screen and (max-width: 750px) {
+      grid-template-columns: 1fr;
+    }
+  `;
+
   return (
     <Container>
       <Title>All PRODUCTS</Title>
-      <ProductSection>{renderList}</ProductSection>
+      <ProductSection
+        initial="initial"
+        animate="enter"
+        exit="exit"
+        variants={{ exit: { transition: { staggerChildren: 0.1 } } }}
+      >
+        {renderList}
+      </ProductSection>
     </Container>
   );
 }
-// shop.products
 const mapStateToProps = state => {
   return {
     products: state.shop.products,

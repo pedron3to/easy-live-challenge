@@ -6,6 +6,7 @@ export const Container = styled.div`
   align-items: center;
   padding-top: 70px;
 `;
+
 export const Title = styled.div`
   font-size: ${({ theme }) => theme.font.xLarge};
   color: ${({ theme }) => theme.colors.textDark};
@@ -16,14 +17,7 @@ export const Title = styled.div`
 export const ProductSection = styled.div`
   display: grid;
   width: 100%;
-  /*  grid-template-columns: 382.6px 382.6px 382.6px;
-  column-gap: auto;
 
-  @media screen and (max-width: 1000px) {
-    width: 1000px;
-    grid-template-columns: 382.6px 382.6px;
-    column-gap: ;
-  } */
   grid-template-columns: 1fr 1fr 1fr 1fr;
 
   @media screen and (max-width: 1220px) {
