@@ -30,7 +30,7 @@ function ProductRow({ item, adjustQty, removeFromCart }) {
   }
 
   function decrement() {
-    setInput(prevState => prevState - 1);
+    input >= 0 ? setInput(prevState => prevState - 1) : null;
   }
 
   const onChangeHandler = e => {
@@ -58,9 +58,13 @@ function ProductRow({ item, adjustQty, removeFromCart }) {
       <Td>${item.price}</Td>
       <Td>
         <AmountContainer>
-          <Button type="button" onClick={decrement}>
-            -
-          </Button>
+          {input >= 2 ? (
+            <Button type="button" onClick={decrement}>
+              {' '}
+              -
+            </Button>
+          ) : null}
+
           <Input
             min="1"
             type="number"
