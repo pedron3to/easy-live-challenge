@@ -34,7 +34,7 @@ const INITIAL_STATE = {
     {
       id: 4,
       img: 'images/im4.png',
-      title: 'purple t-shirt',
+      title: 'Purple t-shirt',
       price: 12.99,
       details:
         'purple t-shirt for every  ocassions which has to do with  sports or walks. Very good fit and feeling for your bodyy.',
@@ -43,7 +43,7 @@ const INITIAL_STATE = {
     {
       id: 5,
       img: 'images/im5.png',
-      title: 'women white t-shirt',
+      title: 'Women white t-shirt',
       price: 49.99,
       details:
         'This t-shirts has been created from the best materials and provides you a good feeling for your body. Are good for every occasions.',
@@ -52,7 +52,7 @@ const INITIAL_STATE = {
     {
       id: 6,
       img: 'images/im6.png',
-      title: 'blue t-shirt',
+      title: 'Blue t-shirt',
       price: 66.99,
       details:
         'This blue t-shirts has been created from the best materials and provides you a good feeling for your body. Are good for every occasions.',
@@ -61,7 +61,7 @@ const INITIAL_STATE = {
     {
       id: 7,
       img: 'images/im7.png',
-      title: 'blue Hoodie',
+      title: 'Blue Hoodie',
       price: 42.99,
       details:
         'blue Hoodie is interesting  model from the company. It is very nice for your body and surelly you will not regret your choice.',
@@ -70,7 +70,7 @@ const INITIAL_STATE = {
     {
       id: 8,
       img: 'images/im2.png',
-      title: 'bob marley shoes',
+      title: 'Bob marley shoes',
       price: 55.99,
       details:
         'Bob marley shoes is aspecial design shoes in the memory of the the famous shnger who made a lot of cool songs.This shoes provides you a good feeling of your foots.',
