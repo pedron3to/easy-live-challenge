@@ -1,6 +1,6 @@
 
 <p align="center">
-   :computer: Simple Ecoomerce Application with React and Redux for Easy Live Challenge. | <a href="https://easylive.com.br/">Easy Live</a>
+   :computer: Simple Ecommerce Application using React and Redux for the Easy Live Challenge. | <a href="https://easylive.com.br/">Easy Live</a>
 </p>
 
 <div align="center">
@@ -21,7 +21,7 @@ This project was made using the follow technologies:
 
 * [Typescript](https://www.typescriptlang.org/)
 * [React](https://reactjs.org/)
-* [NextJs](https://nextjs.org/)
+* [react-spring](https://react-spring.io/)
 * [Styled Components](https://styled-components.com/)
 
 
@@ -29,18 +29,18 @@ This project was made using the follow technologies:
 
 ```bash
 # Clone Repository
-$ git clone https://github.com/pedron3to/rest-countries-api.git
+$ git clone https://github.com/pedron3to/easy-live-challenge.git
 ```
 
 ```bash
 $ cd ..
-$ cd rest-countries-api
+$ cd easy-live-challenge
 # Install Dependencies
 $ yarn
 ```
 
 ```bash
-$ yarn dev
+$ yarn start
 ```
 
 Go to http://localhost:3000 to see the result.
