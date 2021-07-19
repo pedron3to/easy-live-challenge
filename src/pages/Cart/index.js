@@ -21,6 +21,7 @@ import {
   ButtonsContainer,
   Container,
   Message,
+  MessageContainer,
 } from './styles';
 
 function Cart({ cart }) {
@@ -43,12 +44,12 @@ function Cart({ cart }) {
   return (
     <Container>
       {totalItems === 0 ? (
-        <>
+        <MessageContainer>
           <Message>O carrinho está vazio =(</Message>
           <Link to="/">
             <Button type="button">Continue to Shopping</Button>
           </Link>
-        </>
+        </MessageContainer>
       ) : (
         <>
           <Table>

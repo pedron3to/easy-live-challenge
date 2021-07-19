@@ -270,10 +270,19 @@ export const ButtonsContainer = styled.div`
 
 export const Message = styled.div`
   width: 100%;
-  height: 500px;
   text-align: center;
   padding-top: 5rem;
-  font-size: ${({ theme }) => theme.font.xLarge};
+  font-size: ${({ theme }) => theme.font.large};
   color: ${({ theme }) => theme.colors.textDark};
   font-weight: Bold;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+`;
+
+export const MessageContainer = styled.div`
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
 `;

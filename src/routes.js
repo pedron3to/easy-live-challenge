@@ -12,7 +12,7 @@ function Routes({ current }) {
   const transtitions = useTransition(location, {
     from: {
       opacity: 0,
-      transform: 'translateY(100px)',
+      transform: 'translateY(50px)',
       position: 'relative',
       width: '100%',
       zindex: '1',
@@ -26,7 +26,7 @@ function Routes({ current }) {
     },
     leave: {
       opacity: 0,
-      transform: 'translateY(100px)',
+      transform: 'translateY(50px)',
       position: 'relative',
       width: '100%',
       zindex: '1',
@@ -38,12 +38,7 @@ function Routes({ current }) {
     <animated.div style={props}>
       <Switch location={item}>
         <Route path="/" exact component={Catalog} />
-        {!current ? (
-          <Redirect to="/" />
-        ) : (
-          <Route exact path="/products/:id" component={ProductDetail} />
-        )}
-
+        <Route exact path="/products/:id" component={ProductDetail} />
         <Route path="/cart" component={Cart} />
       </Switch>
     </animated.div>
