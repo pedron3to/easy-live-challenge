@@ -44,7 +44,7 @@ function Routes({ current }) {
           <Route exact path="/products/:id" component={ProductDetail} />
         )}
 
-        <Route path="/checkout" component={Cart} />
+        <Route path="/cart" component={Cart} />
       </Switch>
     </animated.div>
   ));
