@@ -1,48 +1,32 @@
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import { Product } from '../../components/Product';
-import {
-  fetchProduct,
-  removeSelectedProducts,
-} from '../../redux/actions/productActions';
+import { addToCart } from '../../redux/actions/productActions';
 
-function ProductDetail() {
-  const product = useSelector(state => state.product);
-
-  const { title, price, description, image, id } = product;
-
-  const { productId } = useParams();
-
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    if (productId && productId !== '') {
-      dispatch(fetchProduct(productId));
-    }
-    return () => {
-      dispatch(removeSelectedProducts());
-    };
-  }, []);
-
-  console.log(product);
-
+function ProductDetail({ current, addToCart }) {
   return (
     <>
-      {Object.keys(product).length === 0 ? (
-        <div>...loading</div>
-      ) : (
-        <Product
-          title={title}
-          id={id}
-          description={description}
-          image={image}
-          price={price}
-        />
-      )}
+      <Product
+        title={current.title}
+        id={current.id}
+        description={current.details}
+        image={current.img}
+        price={current.price}
+        addToCart={() => addToCart(current.id)}
+      />
     </>
   );
 }
+const mapStateToProps = state => {
+  return {
+    current: state.shop.currentItem,
+  };
+};
 
-export default ProductDetail;
+const mapDispatchToProps = dispatch => {
+  return {
+    addToCart: id => dispatch(addToCart(id)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProductDetail);

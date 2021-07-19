@@ -1,7 +1,7 @@
-import fakeStoreApi from '../../apis/fakeStoreApi.js';
-import { ActionTypes } from '../constants/action-types';
+/* import fakeStoreApi from '../../apis/fakeStoreApi.js'; */
+import * as actionTypes from '../constants/action-types';
 
-export function fetchProducts() {
+/* export function fetchProducts() {
   return async (dispatch: any) => {
     const response = await fakeStoreApi.get('/products');
 
@@ -36,7 +36,38 @@ export function removeSelectedProducts() {
     type: ActionTypes.REMOVE_SELECTED_PRODUCT,
   };
 }
+ */
+export const addToCart = (itemID: any) => {
+  return {
+    type: actionTypes.ADD_TO_CART,
+    payload: {
+      id: itemID,
+    },
+  };
+};
 
-export const AddtoCart = (id: any) => (dispatch: any) => {
-  dispatch({ type: ActionTypes.ADD_ITEMS, payload: id });
+export const removeFromCart = (itemID: any) => {
+  return {
+    type: actionTypes.REMOVE_FROM_CART,
+    payload: {
+      id: itemID,
+    },
+  };
+};
+
+export const adjustItemQty = (itemID: any, qty: any) => {
+  return {
+    type: actionTypes.ADJUST_ITEM_QTY,
+    payload: {
+      id: itemID,
+      qty,
+    },
+  };
+};
+
+export const loadCurrentItem = (item: any) => {
+  return {
+    type: actionTypes.LOAD_CURRENT_ITEM,
+    payload: item,
+  };
 };

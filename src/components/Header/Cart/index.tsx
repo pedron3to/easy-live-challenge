@@ -1,11 +1,21 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { GiShoppingCart } from 'react-icons/gi';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import { Container, CounterCart } from './styles';
 
-function Cart() {
+function Cart({ cart }: any) {
   const [cartCount, setCartCount] = useState(0);
+
+  useEffect(() => {
+    let count = 0;
+    cart.forEach((item: any) => {
+      count += item.qty;
+    });
+
+    setCartCount(count);
+  }, [cart, cartCount]);
 
   return (
     <Link to="/checkout">
@@ -17,4 +27,10 @@ function Cart() {
   );
 }
 
-export default Cart;
+const mapStateToProps = (state: any) => {
+  return {
+    cart: state.shop.cart,
+  };
+};
+
+export default connect(mapStateToProps)(Cart);

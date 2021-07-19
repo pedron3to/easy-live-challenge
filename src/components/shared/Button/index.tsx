@@ -1,17 +1,20 @@
 import { ButtonHTMLAttributes, ReactNode } from 'react';
 
-import { ButtonContainer } from './styles';
+import { ButtonSolid, OutlinedButton } from './styles';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
   marginTop?: number;
-  onClick?: () => void;
+  variant?: string;
+  onClick: () => void;
 }
 
-export function Button({ children, marginTop, onClick, ...rest }: ButtonProps) {
-  return (
-    <ButtonContainer marginTop={marginTop} {...rest} onClick={onClick}>
+export function Button({ children, marginTop, variant, ...rest }: ButtonProps) {
+  return variant === 'outlined' ? (
+    <OutlinedButton {...rest}>{children}</OutlinedButton>
+  ) : (
+    <ButtonSolid marginTop={marginTop} {...rest}>
       {children}
-    </ButtonContainer>
+    </ButtonSolid>
   );
 }

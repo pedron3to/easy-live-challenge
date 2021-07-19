@@ -15,6 +15,7 @@ interface ProductProps {
   image: string;
   id: string;
   description: string;
+  addToCart: () => void;
 }
 
 export function Product({
@@ -23,12 +24,13 @@ export function Product({
   image,
   id,
   description,
+  addToCart,
 }: ProductProps) {
   return (
     <Container>
       <ProductImage
         style={{
-          backgroundImage: `url(${image})`,
+          backgroundImage: `url(/${image})`,
         }}
       />
       <ProductInfo>
@@ -36,7 +38,7 @@ export function Product({
         <Title>{title}</Title>
         <Description>{description}</Description>
         <Price>$ {price}</Price>
-        <Button marginTop={44}>Add to Cart</Button>
+        <Button onClick={addToCart}>Add to Cart</Button>
       </ProductInfo>
     </Container>
   );

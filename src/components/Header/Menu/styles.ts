@@ -7,6 +7,10 @@ export const Nav = styled.nav`
     color: ${({ theme }) => theme.colors.textSemiDark};
     font-size: ${({ theme }) => theme.font.small};
     font-weight: bold;
+
+    @media screen and (max-width: 575px) {
+      font-size: ${({ theme }) => theme.font.xsmall};
+    }
   }
 
   a:first-child {

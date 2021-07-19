@@ -2,14 +2,13 @@
 /* eslint-disable prettier/prettier */
 import { ActionTypes } from '../constants/action-types';
 
-
 const initialState = {
   products: [],
   cart: [],
   currentItem: null,
 };
 
-export function productReducer(
+/* export function productReducer(
   state: any = initialState,
   { type, payload }: any,
 ) {
@@ -37,7 +36,7 @@ export function selectedProductReducer(state = {}, { type, payload }: any) {
   }
 }
 
-export function AddtoCart(state = initialState, { type, payload }: any) {
+export function AddToCart(state = initialState, { type, payload }: any) {
   switch (type) {
     case ActionTypes.ADD_ITEMS:
       const check = state.cart.find((item: any) => item.id === payload);
@@ -55,5 +54,4 @@ export function AddtoCart(state = initialState, { type, payload }: any) {
     default:
       return state;
   }
-}
-
+} */
