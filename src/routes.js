@@ -1,12 +1,12 @@
 import { connect } from 'react-redux';
-import { Redirect, Route, Switch, useLocation } from 'react-router-dom';
+import { Route, Switch, useLocation } from 'react-router-dom';
 import { useTransition, animated } from 'react-spring';
 
 import Cart from './pages/Cart/index.js';
 import Catalog from './pages/Catalog/index.js';
 import ProductDetail from './pages/ProductDetail/index.js';
 
-function Routes({ current }) {
+function Routes() {
   const location = useLocation();
 
   const transtitions = useTransition(location, {
